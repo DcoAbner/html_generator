@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{#    <div class="row">#}
+{#        <div class="col">#}
+{#            <h1>DisplayPage.HTML</h1>#}
+{#            {% for line in data %}#}
+{#                <p>{{ line }}</p>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+    {% if input_user %}
+        <div class="row mt-4">
+            <div class="col">
+                <h3>Output for {{ input_user }}</h3>
+            </div>
+        </div>
+
+    {% endif %}
+    <div class="jumbotron mt-4">
+
+    {%  if output_text %}
+        {{ output_text }}
+    {%  endif %}
+    </div>
+{% endblock %}
+
