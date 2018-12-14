@@ -13,9 +13,9 @@ def index(request):
 @login_required
 def output(request):
     data = request.session.get('csv_data', 0)
-    user = request.session.get('user', 0)
+    input_user = request.session.get('input_user', 0)
 
-    if data != 0 and user != 0:
+    if data != 0 and input_user != 0:
         output_text = '<ol>'
         for x, line in enumerate(data):
             if x == 0:
@@ -29,7 +29,7 @@ def output(request):
                 output_text += line[2] + '</li> '
         output_text += '</ol>'
 
-        return render(request, 'output.html', {'data': data, 'output_text': output_text, 'input_user': user})
+        return render(request, 'output.html', {'data': data, 'output_text': output_text, 'input_user': input_user})
 
     else:
         return HttpResponseRedirect(reverse('index'))
